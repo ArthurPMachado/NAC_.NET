@@ -6,6 +6,7 @@
 
 <h1>Filmes</h1>
 
+
 <table class="table table-striped">
     <tr>
         <th>Código</th>
@@ -28,7 +29,40 @@
             <td>
                 <a asp-action="Atualizar" class="btn btn-sm btn-warning" asp-route-id="@item.Codigo">Atualizar</a>
 
+                <button onclick="codigoFilme.value = @item.Codigo"
+                        type="button"
+                        class="btn btn-sm btn-danger"
+                        data-toggle="modal"
+                        data-target="#modalDeletar">
+                    Deletar
+                </button>
             </td>
         </tr>
     }
 </table>
+
+<br />
+<mensagem validacao="@TempData["msg"]"></mensagem>
+
+<div class="modal fade" id="modalDeletar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente remover o filme do catálogo?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="deletar">
+                    <input type="hidden" name="id" id="codigoFilme" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

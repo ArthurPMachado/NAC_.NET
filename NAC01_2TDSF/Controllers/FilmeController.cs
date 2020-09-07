@@ -58,5 +58,16 @@ namespace NAC01_2TDSF.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Deletar(int id)
+        {
+            var indexFilme = _banco.FindIndex(item => item.Codigo == id);
+            _banco.RemoveAt(indexFilme);
+
+            TempData["msg"] = "Filme removido do catálogo!";
+
+            return RedirectToAction("Index");
+        }
     }
 }
