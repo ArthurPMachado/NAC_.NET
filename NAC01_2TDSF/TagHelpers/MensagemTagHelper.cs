@@ -12,9 +12,12 @@ namespace NAC01_2TDSF.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.TagName = "span";
-            output.Attributes.SetAttribute("class", "alert alert-success");
-            output.Content.SetContent(Validacao);
+            if (!string.IsNullOrEmpty(Validacao))
+            {
+                output.TagName = "span";
+                output.Attributes.SetAttribute("class", "alert alert-success");
+                output.Content.SetContent(Validacao);
+            }
         }
     }
 }
