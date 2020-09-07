@@ -16,5 +16,28 @@ namespace NAC01_2TDSF.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Cadastrar(Filme filme)
+        {
+            if (_banco.Any())
+            {
+                filme.Codigo = _banco[_banco.Count - 1].Codigo + 1;
+            } else
+            {
+                filme.Codigo = 1;
+            }
+
+            _banco.Add(filme);
+            TempData["msg"] = "Filme adicionado no catálogo!";
+
+            return RedirectToAction("Cadastrar");
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
     }
 }
