@@ -14,7 +14,7 @@ namespace NAC01_2TDSF.Controllers
         // Home page dos filmes
         public IActionResult Index()
         {
-            return View();
+            return View(_banco);
         }
 
         [HttpPost]
@@ -38,6 +38,14 @@ namespace NAC01_2TDSF.Controllers
         public IActionResult Cadastrar()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Atualizar(int id)
+        {
+            var filme = _banco.Find(item => item.Codigo == id);
+
+            return View(filme);
         }
     }
 }
