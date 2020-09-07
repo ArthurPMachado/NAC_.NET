@@ -6,6 +6,7 @@
 
 <h1>Filmes</h1>
 
+<mensagem validacao="@TempData["msg"]"></mensagem>
 
 <table class="table table-striped">
     <tr>
@@ -41,8 +42,7 @@
     }
 </table>
 
-<br />
-<mensagem validacao="@TempData["msg"]"></mensagem>
+<a asp-action="Cadastrar" class="btn btn-outline-dark">Cadastrar</a>
 
 <div class="modal fade" id="modalDeletar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

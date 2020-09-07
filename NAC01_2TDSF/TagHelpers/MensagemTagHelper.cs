@@ -14,7 +14,7 @@ namespace NAC01_2TDSF.TagHelpers
         {
             if (!string.IsNullOrEmpty(Validacao))
             {
-                output.TagName = "span";
+                output.TagName = "div";
                 output.Attributes.SetAttribute("class", "alert alert-success");
                 output.Content.SetContent(Validacao);
             }

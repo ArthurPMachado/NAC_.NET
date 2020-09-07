@@ -46,7 +46,7 @@ namespace NAC01_2TDSF
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Filme}/{action=Index}/{id?}");
             });
         }
     }
