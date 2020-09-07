@@ -47,5 +47,16 @@ namespace NAC01_2TDSF.Controllers
 
             return View(filme);
         }
+
+        [HttpPost]
+        public IActionResult Atualizar(Filme filme)
+        {
+            var indexFilme = _banco.FindIndex(item => item.Codigo == filme.Codigo);
+            _banco[indexFilme] = filme;
+
+            TempData["msg"] = "Filme Atualizado!";
+
+            return RedirectToAction("Index");
+        }
     }
 }
