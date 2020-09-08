@@ -8,6 +8,11 @@
 
 <mensagem validacao="@TempData["msg"]"></mensagem>
 
+<form asp-action="filtrar" method="get" class="form-inline">
+    <input placeholder="Digite o nome do filme" name="nome" class="form-control" type="text" />
+    <input type="submit" value="Filtrar" class="btn btn-sm btn-success" />
+</form>
+
 <table class="table table-striped">
     <tr>
         <th>Código</th>

@@ -17,6 +17,18 @@ namespace NAC01_2TDSF.Controllers
             return View(_banco);
         }
 
+        [HttpGet]
+        public IActionResult Filtrar(string nome)
+        {
+            var filtro = _banco;
+            if(nome != null)
+            {
+                filtro = _banco.Where(item => item.Nome.Contains(nome)).OrderBy(item => item.Duracao).ToList();
+            } 
+         
+            return View("Index", filtro); 
+        }
+
         [HttpPost]
         public IActionResult Cadastrar(Filme filme)
         {
